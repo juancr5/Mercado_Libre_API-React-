@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getGifsService } from '../services/getGifService';
+import { getGifsService } from '../services/getApiMercadoService';
 
 
 export const useFetchGifs = (category) => {
