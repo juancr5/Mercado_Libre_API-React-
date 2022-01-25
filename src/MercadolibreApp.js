@@ -1,38 +1,21 @@
 //Main
+import React, { useState} from "react";
+import AppRouter from "./routers/AppRouter";
+import { CategoriesContext } from "./components/CategoriesContext";
 
-import React, { useState } from "react";
-import AddCategory from "./components/AddCategory";
-import GifGrid from "./components/ApiMercadoGrid";
 
+// Pagina Principal
 const MercadoLibreApp = () => {
 
-    // Por defecto el arreglo tendra el primer valor de asigando por el useState
+    // Por defecto el arreglo tendra el primer valor asigando por el useState
     const [categories, setCategories] = useState(['Ipad']);
 
-
-    //Codigo Html
     return (
-        <>
-            {/*Titulo*/}
-            <h2>Mercado Libre</h2>
 
-            {/*Componente AddCategory para pasar setCategories atraves del props en el buscador AddCategory*/}
-            <AddCategory setCategories={setCategories} />
-            <hr/>
-
-            {/*Lista de Productos*/}
-            <ol>
-                {
-                    categories.map(category => (
-                        //return <li key={category}> {category}</li>
-                        <GifGrid 
-                        key={category} 
-                        category={category}
-                        />
-                    ))
-                }
-            </ol>
-        </>
+        /*Crea una instancia en el arbol de componentes con el categories*/
+        <CategoriesContext.Provider value={{categories, setCategories}}>
+            <AppRouter/>
+        </CategoriesContext.Provider>  
     );
 }
 

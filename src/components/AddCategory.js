@@ -1,8 +1,9 @@
-
 import React, { useState } from "react";
 import PropTypes from 'prop-types';
 
+// Buscador del Producto
 const AddCategory = ({setCategories}) => {
+//recibe un setCategories
 
     const [inputValue, setInputValue] = useState('Ingrese el producto a buscar');
 
@@ -16,8 +17,9 @@ const AddCategory = ({setCategories}) => {
         e.preventDefault();
         
         if (inputValue.trim().length > 2 ) {
-            // Asigna el valor del input al arreglo en GifExpertApp
-            setCategories( cats => [...cats, inputValue]); 
+            // Asigna el valor del input al arreglo, lo puede concatenar a los otros valores establecidos o realizar una nueva busqueda
+            //setCategories( cats => [...cats, inputValue]); 
+            setCategories( cats => [inputValue]); 
             setInputValue('')
         }
     }
